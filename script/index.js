@@ -1,16 +1,52 @@
-function attack() {
-  // This is how we write to developer console
-  // console.log("Rawr! I have attacked!");
+class Fighter {
+  constructor(name, charaName) {
+    //'contructor' is in all JS classes
+    // It gets run immediately when a new object is created from a class
 
-  // This is how we get the content of 'outputBox'
-  // console.log(document.getElementById('outputBox').innerHTML)
-
-  // This is how we change 'outputBox's innerHTML
-  // document.getElementById('outputBox').innerHTML = "New Text <br>"
-
-  let oldText = document.getElementById('outputBox').innerHTML
-  document.getElementById('outputBox').innerHTML = "Attacked!<br>"
-  document.getElementById('outputBox').innerHTML += "Attacked again!<br>"
-  document.getElementById('outputBox').innerHTML += oldText
-
+    // Set all of our deafult values for this new fighter here
+    this.name = name;
+    this.hp = 20;
+    this.sp = 10;
+    this.atk = 5;
+    this.def = 5;
+    this.tek = 5;
+    this.charaName = charaName;
+  }
+  attack(target) {
+    console.log(this.name + " attacked " + target.name)
+  }
+  single(target) {
+    this.attack(target);
+  }
+  double(target) {
+    this.attack(target);
+    this.attack(target);
+  }
+  recover() {
+    console.log("Recovered!")
+  }
 }
+
+
+let Player0;
+let Player1;
+
+function startup() {
+  Player0 = new Fighter("Crash", "crashr");
+  Player1 = new Fighter("Sam", "saml");
+
+  console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
+  console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
+}
+
+
+
+
+
+
+
+
+/*
+MHW = 'delicious'
+MHWoutput > MHWinput
+*/
