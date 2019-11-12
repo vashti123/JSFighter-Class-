@@ -1,3 +1,10 @@
+const START_HP = 9001;
+const START_SP = 9001
+const START_ATK = 9001
+const START_DEF = 9001
+const START_TEK = 9001
+
+
 class Fighter {
   constructor(name, charaName) {
     //'contructor' is in all JS classes
@@ -5,11 +12,11 @@ class Fighter {
 
     // Set all of our deafult values for this new fighter here
     this.name = name;
-    this.hp = 20;
-    this.sp = 10;
-    this.atk = 5;
-    this.def = 5;
-    this.tek = 5;
+    this.hp = START_HP;
+    this.sp = START_SP;
+    this.atk = START_ATK;
+    this.def = START_DEF;
+    this.tek = START_TEK;
     this.charaName = charaName;
   }
   attack(target) {
