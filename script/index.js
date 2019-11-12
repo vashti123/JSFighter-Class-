@@ -1,8 +1,8 @@
 const START_HP = 20;
 const START_SP = 10;
-const START_ATK = 5;
-const START_DEF = 5;
-const START_TEK = 5;
+const DEAFULT_ATK = 5;
+const DEAFULT_DEF = 5;
+const DEAFULT_TEK = 5;
 
 class Fighter {
   constructor(name, charaName) {
@@ -11,11 +11,11 @@ class Fighter {
 
     // Set all of our deafult values for this new fighter here
     this.name = name;
-    this.hp = 20;
-    this.sp = 10;
-    this.atk = 5;
-    this.def = 5;
-    this.tek = 5;
+    this.hp = START_HP;
+    this.sp = START_SP;
+    this.atk = DEAFULT_ATK;
+    this.def = DEAFULT_DEF;
+    this.tek = DEAFULT_TEK;
     this.charaName = charaName;
   }
   attack(target) {
