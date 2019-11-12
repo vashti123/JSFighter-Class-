@@ -1,3 +1,9 @@
+const START_HP = 20;
+const START_SP = 10;
+const START_ATK = 5;
+const START_DEF = 5;
+const START_TEK = 5;
+
 class Fighter {
   constructor(name, charaName) {
     //'contructor' is in all JS classes
