@@ -52,23 +52,19 @@ class Fighter {
   }
 }
 
-
-
-
 function startup() {
   Player0 = new Fighter(P0NAME, P0CHARA);
   Player1 = new Fighter(P1NAME, P1CHARA);
 
-gameBox = document.getElementById('gameBox');
-headerBox = document.getElementById('headerBox');
-graphicsBox = document.getElementById('graphicsBox');
-barsBox = document.getElementById('barsBox');
-controlBox = document.getElementById('controlBox');
-outputBox = document.getElementById('outputBox');
+  gameBox = document.getElementById('gameBox');
+  headerBox = document.getElementById('headerBox');
+  graphicsBox = document.getElementById('graphicsBox');
+  barsBox = document.getElementById('barsBox');
+  controlsBox = document.getElementById('controlsBox');
+  outputBox = document.getElementById('outputBox');
 
-
-  graphicsBox.innerHTML = '<img id="'+ Player0.charaName +'" src="img/'+ Player0.charaName +'_idle.png" alt="'+ Player0.name +'" class="fighterIMG">';
-  graphicsBox.innerHTML += '<img id="'+ Player1.charaName +'" src="img/'+ Player1.charaName +'_idle.png" alt="'+ Player1.name +'" class="fighterIMG">';
+  graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
+  graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
