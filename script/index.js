@@ -5,18 +5,12 @@ const DEFAULT_DEF = 5;
 const DEFAULT_TEK = 5;
 
 const P0NAME = "Crash"
-const P0CHARA = "crashr"
-const P1NAME = "Sam"
-const P1CHARA = "saml"
+const P0CHARA = "chrashr"
 
-let playerTurn = false;
-let logging = true;
 
 class Fighter {
   constructor(name, charaName) {
-    //'contructor' is in all JS classes
-    // It gets run immediately when a new object is created from a class
-
+    //'contructor' is in all JS classes. It is run immediately when a new object is created from a class
     // Set all of our default values for this new fighter here
     this.name = name;
     this.hp = START_HP;
@@ -27,7 +21,7 @@ class Fighter {
     this.charaName = charaName;
   }
   attack(target) {
-    console.log(this.name + " attacked " + target.name)
+    console.log(this.name + " attacked " + target.name);
   }
   single(target) {
     this.attack(target);
@@ -37,30 +31,20 @@ class Fighter {
     this.attack(target);
   }
   recover() {
-    console.log("Recovered!")
+    console.log("Recovered!");
   }
 }
-
 
 let Player0;
 let Player1;
 
 function startup() {
-  Player0 = new Fighter(P0NAME, P0CHARA);
-  Player1 = new Fighter(P1NAME, P1CHARA);
+  Player0 = new Fighter("Crash", "crashr");
+  Player1 = new Fighter("Sam", "saml");
+
+  document.getElementById('graphicsBox').innerHTML = '<img class="fighterIMG" src="img/crashr_idle.png" alt="Crash" id="crashimg">'
+  document.getElementById('graphicsBox').innerHTML += '<img class="fighterIMG" src="img/saml_idle.png" alt="Sam" id="samimg">'
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
 }
-
-
-
-
-
-
-
-
-/*
-MHW = 'delicious'
-MHWoutput > MHWinput
-*/
