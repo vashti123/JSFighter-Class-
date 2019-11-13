@@ -13,6 +13,15 @@ const P1CHARA = "saml"
 let playerTurn = false;
 let logging = true;
 
+let Player0;
+let Player1;
+
+let gameBox;
+let headerBox;
+let graphicsBox;
+let barsBox;
+let controlsBox;
+let outputBox;
 
 class Fighter {
   constructor(name, charaName) {
@@ -44,14 +53,22 @@ class Fighter {
 }
 
 
-let Player0;
-let Player1;
+
 
 function startup() {
   Player0 = new Fighter(P0NAME, P0CHARA);
   Player1 = new Fighter(P1NAME, P1CHARA);
 
-  document.getElementById('graphicsBox').innerHTML = '<img src="img/Crashr_idle.png" class="fighterIMG" alt="Crash" style="float-left"> <img src="img/Saml_idle.png" class="fighterIMG" alt="Crash" style="float-right">';
+gameBox = document.getElementById('gameBox');
+headerBox = document.getElementById('headerBox');
+graphicsBox = document.getElementById('graphicsBox');
+barsBox = document.getElementById('barsBox');
+controlBox = document.getElementById('controlBox');
+outputBox = document.getElementById('outputBox');
+
+
+  graphicsBox.innerHTML = '<img id="'+ Player0.charaName +'" src="img/'+ Player0.charaName +'_idle.png" alt="'+ Player0.name +'" class="fighterIMG">';
+  graphicsBox.innerHTML += '<img id="'+ Player1.charaName +'" src="img/'+ Player1.charaName +'_idle.png" alt="'+ Player1.name +'" class="fighterIMG">';
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
