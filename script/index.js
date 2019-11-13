@@ -51,10 +51,6 @@ function startup() {
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
-
-
-  document.getElementById('graphicsBox').innerHTML = '<img src="img/crashr_idle.png" alt="Crash">'
-  document.getElementById('graphicsBox').innerHTML += '<img src="img/saml_idle.png" alt="Sam">'
 }
 
 
