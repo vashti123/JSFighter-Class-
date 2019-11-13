@@ -17,38 +17,39 @@ let Player1;
 
 let gameBox;
 let headerBox;
+let graphicsBox;
 let barsBox;
 let controlsBox;
-let outputBox:
+let outputBox;
 
-  class Fighter {
-    constructor(name, charaName) {
-      //'contructor' is in all JS classes
-      // It gets run immediately when a new object is created from a class
+class Fighter {
+  constructor(name, charaName) {
+    //'contructor' is in all JS classes
+    // It gets run immediately when a new object is created from a class
 
-      // Set all of our default values for this new fighter here
-      this.name = name;
-      this.hp = START_HP;
-      this.sp = START_SP;
-      this.atk = DEFAULT_ATK;
-      this.def = DEFAULT_DEF;
-      this.tek = DEFAULT_TEK;
-      this.charaName = charaName;
-    }
-    attack(target) {
-      console.log(this.name + " attacked " + target.name)
-    }
-    single(target) {
-      this.attack(target);
-    }
-    double(target) {
-      this.attack(target);
-      this.attack(target);
-    }
-    recover() {
-      console.log("Recovered!")
-    }
+    // Set all of our default values for this new fighter here
+    this.name = name;
+    this.hp = START_HP;
+    this.sp = START_SP;
+    this.atk = DEFAULT_ATK;
+    this.def = DEFAULT_DEF;
+    this.tek = DEFAULT_TEK;
+    this.charaName = charaName;
   }
+  attack(target) {
+    console.log(this.name + " attacked " + target.name)
+  }
+  single(target) {
+    this.attack(target);
+  }
+  double(target) {
+    this.attack(target);
+    this.attack(target);
+  }
+  recover() {
+    console.log("Recovered!")
+  }
+}
 
 
 function startup() {
@@ -57,6 +58,7 @@ function startup() {
 
   gameBox = document.getElementById('gameBox');
   headerBox = document.getElementById('headerBox');
+  graphicsBox = document.getElementById('graphicsBox');
   barsBox = document.getElementById('barsBox');
   controlsBox = document.getElementById('controlsBox');
   outputBox = document.getElementById('outputBox');
