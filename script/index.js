@@ -19,6 +19,16 @@ let barsBox;
 let controlsBox;
 let outputBox;
 
+let Player0;
+let Player1;
+
+let gameBox;
+let headerBox;
+let graphicsBox;
+let barsBox;
+let controlsBox;
+let outputBox;
+
 class Fighter {
   constructor(name, charaName) {
     //'contructor' is in all JS classes
@@ -49,16 +59,6 @@ class Fighter {
 }
 
 
-let Player0;
-let Player1;
-
-let gameBox;
-let headerBox;
-let graphicsBox;
-let barsBox;
-let controlsBox;
-let outputBox;
-
 function startup() {
   Player0 = new Fighter('Crash', 'crashr');
   Player1 = new Fighter('Sam', 'saml');
@@ -73,8 +73,18 @@ function startup() {
   graphicsBox.innerHTML = '<img src="img/' + P0CHARA + '_idle.png" alt="'+ P0NAME +'" class="fighterIMG">'
   graphicsBox.innerHTML += '<img src="img/'+ P1CHARA +'_idle.png" alt="' + P1NAME + '" class="fighterIMG">'
 
-  console.log('My name is ' + Player0.name + ' and my ATK is ' + Player0.atk)
-  console.log('My name is ' + Player1.name + ' and my ATK is ' + Player1.atk)
+  gameBox = document.getElementById('gameBox');
+  headerBox = document.getElementById('headerBox');
+  graphicsBox = document.getElementById('graphicsBox');
+  barsBox = document.getElementById('barsBox');
+  controlsBox = document.getElementById('controlsBox');
+  outputBox = document.getElementById('outputBox');
+
+  graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
+  graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
+
+  console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
+  console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
 }
 
 
