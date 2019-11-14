@@ -2,8 +2,8 @@
 const START_HP = 20;
 const START_SP = 10;
 const DEFAULT_ATK = 5;
-const DEFAULT_DEF = 5;
-const DEFAULT_TEK = 5;
+const DEFAULT_DEF = 5
+const DEFAULT_TEK = 5
 
 const P0NAME = 'Crash'
 const P0CHARA = 'crashr'
@@ -51,10 +51,10 @@ class Fighter {
   }
 }
 
-function startup() {
-  Player0 = new Fighter("Crash", "crashr");
-  Player1 = new Fighter("Sam", "saml");
 
+function startup() {
+  Player0 = new Fighter('Crash', 'crashr');
+  Player1 = new Fighter('Sam', 'saml');
 
   gameBox = document.getElementById('gameBox');
   headerBox = document.getElementById('headerBox');
@@ -66,19 +66,21 @@ function startup() {
   graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
   graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
 
+
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
 
-
   showControls();
-
 }
 
 function showControls() {
+  //Player0 is FALSE, Player1 is TRUE.
   if (playerTurn) {
     controlsBox.innerHTML = '<button type="button" onclick= "Player0.single(Player1)">Single Attack</button>'
+    console.log("Crash's turn.");
   }
   else {
     controlsBox.innerHTML = '<button type="button" onclick= "Player1.single(Player0)">Single Attack</button>'
+    console.log("Sam's turn.");
   }
 }
