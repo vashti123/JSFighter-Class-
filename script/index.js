@@ -13,6 +13,9 @@ const P1CHARA = 'saml'
 let Player0;
 let Player1;
 
+let playerTurn = false;
+let logging = false;
+
 let gameBox;
 let headerBox;
 let graphicsBox;
@@ -33,7 +36,6 @@ class Fighter {
     this.charaName = charaName;
   }
   attack(target) {
-
     console.log(this.name + ' attacked ' + target.name)
 
   }
@@ -45,7 +47,6 @@ class Fighter {
     this.attack(target);
   }
   recover() {
-
     console.log('Recovered!')
   }
 }
@@ -54,8 +55,6 @@ function startup() {
   Player0 = new Fighter("Crash", "crashr");
   Player1 = new Fighter("Sam", "saml");
 
-  document.getElementById('graphicsBox').innerHTML = '<img class="fighterIMG" src="img/crashr_idle.png" alt="Crash" id="crashimg">'
-  document.getElementById('graphicsBox').innerHTML += '<img class="fighterIMG" src="img/saml_idle.png" alt="Sam" id="samimg">'
 
   gameBox = document.getElementById('gameBox');
   headerBox = document.getElementById('headerBox');
@@ -69,4 +68,17 @@ function startup() {
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
+
+
+  showControls();
+
+}
+
+function showControls() {
+  if (playerTurn) {
+    controlsBox.innerHTML = '<button type="button" onclick= "Player0.single(Player1)">Single Attack</button>'
+  }
+  else {
+    controlsBox.innerHTML = '<button type="button" onclick= "Player1.single(Player0)">Single Attack</button>'
+  }
 }
