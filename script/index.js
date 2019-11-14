@@ -77,12 +77,14 @@ function startup() {
 function showControls() {
   if (playerTurn) {
     //show buttons for player1 hide for player0
-    // controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
-    console.log('<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>')
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
+    // console.log('sam should attack crash');
+
   } else {
     //Hide buttons for player1 show for player0
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
-    console.log('<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>')
+    // console.log('crash should attack sam');
+
   }
 }
 
