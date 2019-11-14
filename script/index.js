@@ -1,4 +1,3 @@
-
 const START_HP = 20;
 const START_SP = 10;
 const DEFAULT_ATK = 5;
@@ -22,6 +21,8 @@ let graphicsBox;
 let barsBox;
 let controlsBox;
 let outputBox;
+let player1ControlBox;
+let player0ControlBox;
 
 class Fighter {
   constructor(name, charaName) {
@@ -63,6 +64,8 @@ function startup() {
   controlsBox = document.getElementById('controlsBox');
   outputBox = document.getElementById('outputBox');
 
+  showControls()
+
   graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
   graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
 
@@ -71,12 +74,17 @@ function startup() {
 
 }
 
-
-
-
-
-
-
+function showControls() {
+  if (playerTurn) {
+    //show buttons for player1 hide for player0
+    // controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
+    console.log('<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>')
+  } else {
+    //Hide buttons for player1 show for player0
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
+    console.log('<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>')
+  }
+}
 
 /*
 MHW = 'delicious'
