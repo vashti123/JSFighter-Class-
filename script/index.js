@@ -10,11 +10,11 @@ const P0CHARA = 'crashr'
 const P1NAME = 'Sam'
 const P1CHARA = 'saml'
 
-let playerTurn = false;
-let logging = true;
-
 let Player0;
 let Player1;
+
+let playerTurn = false;
+let logging = false;
 
 let gameBox;
 let headerBox;
@@ -25,9 +25,7 @@ let outputBox;
 
 class Fighter {
   constructor(name, charaName) {
-    //'contructor' is in all JS classes
-    // It gets run immediately when a new object is created from a class
-
+    //'contructor' is in all JS classes. It is run immediately when a new object is created from a class
     // Set all of our default values for this new fighter here
     this.name = name;
     this.hp = START_HP;
@@ -39,6 +37,7 @@ class Fighter {
   }
   attack(target) {
     console.log(this.name + ' attacked ' + target.name)
+
   }
   single(target) {
     this.attack(target);
@@ -53,8 +52,9 @@ class Fighter {
 }
 
 function startup() {
-  Player0 = new Fighter(P0NAME, P0CHARA);
-  Player1 = new Fighter(P1NAME, P1CHARA);
+  Player0 = new Fighter("Crash", "crashr");
+  Player1 = new Fighter("Sam", "saml");
+
 
   gameBox = document.getElementById('gameBox');
   headerBox = document.getElementById('headerBox');
@@ -68,16 +68,17 @@ function startup() {
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
+
+
+  showControls();
+
 }
 
-
-
-
-
-
-
-
-/*
-MHW = 'delicious'
-MHWoutput > MHWinput
-*/
+function showControls() {
+  if (playerTurn) {
+    controlsBox.innerHTML = '<button type="button" onclick= "Player0.single(Player1)">Single Attack</button>'
+  }
+  else {
+    controlsBox.innerHTML = '<button type="button" onclick= "Player1.single(Player0)">Single Attack</button>'
+  }
+}
