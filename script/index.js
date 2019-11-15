@@ -10,7 +10,7 @@ const P0CHARA = 'crashr'
 const P1NAME = 'Sam'
 const P1CHARA = 'saml'
 
-let playerTurn = false;
+let playerTurn = true;
 let logging = true;
 
 let Player0;
@@ -68,8 +68,19 @@ function startup() {
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
+  showControls()
 }
 
+function showControls() {
+  if (playerTurn = true){
+  controlsBox.innerHTML = '<button onclick = "Player0.single(Player1)">Single Attack</button>'
+    //show Player1 controls
+  }
+  else {
+    // show Player0 controls
+    controlsBox.innerHTML = '<button onclick = "Player1.single(Player0)">attack</button>'
+  }
+}
 
 
 
