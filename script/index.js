@@ -21,8 +21,6 @@ let graphicsBox;
 let barsBox;
 let controlsBox;
 let outputBox;
-let player1ControlBox;
-let player0ControlBox;
 
 class Fighter {
   constructor(name, charaName) {
