@@ -64,7 +64,7 @@ function startup() {
   controlsBox = document.getElementById('controlsBox');
   outputBox = document.getElementById('outputBox');
 
-  showControls()
+  showControls() //runs the showControls() function
 
   graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
   graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
@@ -75,16 +75,14 @@ function startup() {
 }
 
 function showControls() {
+  //checks to see which players turn it is and show the apropriate controls
   if (playerTurn) {
-    //show buttons for player1 hide for player0
+    //show buttons for player1 and overwrites player0's controls
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
-    // console.log('sam should attack crash');
 
   } else {
-    //Hide buttons for player1 show for player0
+    //show buttons for player0 and overwrites player1's controls
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
-    // console.log('crash should attack sam');
-
   }
 }
 
