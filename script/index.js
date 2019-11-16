@@ -1,4 +1,3 @@
-//sets constants bars
 const START_HP = 20;
 const START_SP = 10;
 const DEFAULT_ATK = 5;
@@ -17,7 +16,7 @@ let logging = true;
 let Player0;
 let Player1;
 
-// sets variables for the boxes
+// declared variables for the boxes
 let gameBox;
 let headerBox;
 let graphicsBox;
@@ -64,7 +63,7 @@ function startup() {
   Player0 = new Fighter(P0NAME, P0CHARA);
   Player1 = new Fighter(P1NAME, P1CHARA);
 
-  //this makes a shortcut and cleans the code
+  //this makes a shortcut for 'document.getElementById'
   gameBox = document.getElementById('gameBox');
   headerBox = document.getElementById('headerBox');
   graphicsBox = document.getElementById('graphicsBox');
@@ -72,48 +71,30 @@ function startup() {
   controlsBox = document.getElementById('controlsBox');
   outputBox = document.getElementById('outputBox');
 
-  //this shows the images in the graphics box
+  //this shows the fighter images in the graphics box
   graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
   graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
 
-  //this calls the funtion 'showControls()'
   showControls();
-  
+
   //this logs their name and attack
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk);
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk);
 }
 
 function showControls() {
+  /* This function makes the buttons using 'innerHTML'. it uses an 'if else' statement when
+  'playerTurn' is true it logs sams turn but when playerTurn is false it logs crashes turn */
   //Player0 is FALSE, Player1 is TRUE.
   if (playerTurn) {
-    //makes the buttons for crashes turn
     controlsBox.innerHTML = '<button type="button" onclick= "Player0.single(Player1)">Single Attack</button>'
-    //logs crashes turn
     console.log("Crash's turn.");
   }
   else {
-    //makes the button for sams turn
     controlsBox.innerHTML = '<button type="button" onclick= "Player1.single(Player0)">Single Attack</button>'
-    //logs sams turn
     console.log("Sam's turn.");
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 
