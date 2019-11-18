@@ -16,13 +16,23 @@ let logging = true;
 let Player0;
 let Player1;
 
-// declared variables for the boxes
+//varible for finding % of players HP used for the HealthBar
+let player0PercentHP;
+let player1PercentHP;
+let player0PercentSP;
+let player1PercentSP;
+
+// declared variables for the boxes and healthbar filling div layers
 let gameBox;
 let headerBox;
 let graphicsBox;
 let barsBox;
 let controlsBox;
 let outputBox;
+let p0HPfill;
+let p0SPfill;
+let p1HPfill;
+let p1SPfill;
 
 class Fighter {
   constructor(name, charaName) {
@@ -70,6 +80,11 @@ function startup() {
   barsBox = document.getElementById('barsBox');
   controlsBox = document.getElementById('controlsBox');
   outputBox = document.getElementById('outputBox');
+  p0HPfill = document.getElementById('p0HPfill');
+  p0SPfill = document.getElementById('p0SPfill');
+  p1HPfill = document.getElementById('p1HPfill');
+  p1SPfill = document.getElementById('p1SPfill');
+
 
   //this shows the fighter images in the graphics box
   graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
@@ -80,6 +95,7 @@ function startup() {
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
 
   showControls() //runs the showControls() function
+  updateBars() //runs the updateBars() function
 }
 
 function showControls() {
@@ -93,6 +109,53 @@ function showControls() {
   }
 }
 
+function updateBars() {
+  //calculates the percent of HP
+  player0PercentHP = (Player0.hp / START_HP) * 100
+  player1PercentHP = (Player1.hp / START_HP) * 100
+  player0PercentHP = (Player0.sp / START_SP) * 100
+  player1PercentHP = (Player1.sp / START_SP) * 100
+
+  //Makes sure Player0's health is not greater than 100% or less than 0%
+  if (player0PercentHP <= 0) {
+    player0PercentHP = 0
+  } else if (player0PercentHP > 100) {
+    player0PercentHP = 100
+  }
+
+  //Makes sure Player1's health is not greater than 100% or less than 0%
+  if (player1PercentHP <= 0) {
+    player1PercentHP = 0
+  } else if (player1PercentHP > 100) {
+    player1PercentHP = 100
+  }
+
+  //Makes sure Player0's SP is not greater than 100% or less than 0%
+  if (player0PercentSP <= 0) {
+    player0PercentHP = 0
+  } else if (player0PercentSP > 100) {
+    player0PercentHP = 100
+  }
+
+  //Makes sure Player1's SP is not greater than 100% or less than 0%
+  if (player1PercentSP <= 0) {
+    player1PercentSP = 0
+  } else if (player1PercentSP > 100) {
+    player1PercentSP = 100
+  }
+
+  p0HPfill.style.width = player0PercentHP
+  p0HPfill.style.height = '100%'
+
+  p0SPfill.style.width = player0PercentSP
+  p0SPfill.style.height = '100%'
+
+  p1HPfill.style.width = player1PercentHP
+  p1HPfill.style.height = '100%'
+
+  p1SPfill.style.width = player1PercentSP
+  p1SPfill.style.height = '100%'
+}
 /*
 
 MHW = 'delicious'
