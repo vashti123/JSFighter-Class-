@@ -29,7 +29,7 @@ class Fighter {
     //'contructor' is in all JS classes
     // It gets run immediately when a new object is created from a class
 
-    // Set all of our deafult values for this new fighter here
+    // Set all of our default values for this new fighter here
     this.name = name;
     this.hp = START_HP;
     this.sp = START_SP;
@@ -60,8 +60,8 @@ class Fighter {
 }
 
 function startup() {
-  Player0 = new Fighter("Crash", "crashr");
-  Player1 = new Fighter("Sam", "saml");
+  Player0 = new Fighter(P0NAME, P0CHARA);
+  Player1 = new Fighter(P1NAME, P1CHARA);
 
   //this makes a shortcut for 'document.getElementById'
   gameBox = document.getElementById('gameBox');
