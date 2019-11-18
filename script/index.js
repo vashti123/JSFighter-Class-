@@ -29,7 +29,7 @@ class Fighter {
     //'contructor' is in all JS classes
     // It gets run immediately when a new object is created from a class
 
-    // Set all of our deafult values for this new fighter here
+    // Set all of our default values for this new fighter here
     this.name = name;
     this.hp = START_HP;
     this.sp = START_SP;
@@ -58,18 +58,10 @@ class Fighter {
     console.log('Recovered!');
   }
 }
-//creates button and attacks either Player0 or Player1
-function showControls() {
-if (playerTurn == true) {
-  controlsBox.innerHTML = '<button onclick = "Player1.single(Player0)">single</button>'
-  }
-  else {
-    controlsBox.innerHTML = '<button onclick = "Player0.single(Player1)">single</button>'
-  }
-}
+
 function startup() {
-  Player0 = new Fighter("Crash", "crashr");
-  Player1 = new Fighter("Sam", "saml");
+  Player0 = new Fighter(P0NAME, P0CHARA);
+  Player1 = new Fighter(P1NAME, P1CHARA);
 
   //this makes a shortcut for 'document.getElementById'
   gameBox = document.getElementById('gameBox');
@@ -86,15 +78,20 @@ function startup() {
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
-  showControls();
+
+  showControls() //runs the showControls() function
 }
 
-
-
-
-
-
-
+function showControls() {
+  //checks to see which players turn it is and show the apropriate controls
+  if (playerTurn) {
+    //show buttons for player1 and overwrites player0's controls
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
+  } else {
+    //show buttons for player0 and overwrites player1's controls
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
+  }
+}
 
 /*
 
