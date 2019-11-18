@@ -1,10 +1,10 @@
-
 const START_HP = 20;
 const START_SP = 10;
 const DEFAULT_ATK = 5;
 const DEFAULT_DEF = 5;
 const DEFAULT_TEK = 5;
 
+//sets constants names
 const P0NAME = 'Crash'
 const P0CHARA = 'crashr'
 const P1NAME = 'Sam'
@@ -16,6 +16,7 @@ let logging = true;
 let Player0;
 let Player1;
 
+// declared variables for the boxes
 let gameBox;
 let headerBox;
 let graphicsBox;
@@ -37,18 +38,24 @@ class Fighter {
     this.tek = DEFAULT_TEK;
     this.charaName = charaName;
   }
+
+  //this logs who attacked who
   attack(target) {
-    console.log(this.name + ' attacked ' + target.name)
+    console.log(this.name + ' attacked ' + target.name);
   }
+
   single(target) {
     this.attack(target);
   }
+
   double(target) {
     this.attack(target);
     this.attack(target);
   }
+
+  //this logs that they recovered
   recover() {
-    console.log('Recovered!')
+    console.log('Recovered!');
   }
 }
 //creates button and attacks either Player0 or Player1
@@ -64,6 +71,7 @@ function startup() {
   Player0 = new Fighter("Crash", "crashr");
   Player1 = new Fighter("Sam", "saml");
 
+  //this makes a shortcut for 'document.getElementById'
   gameBox = document.getElementById('gameBox');
   headerBox = document.getElementById('headerBox');
   graphicsBox = document.getElementById('graphicsBox');
@@ -71,6 +79,7 @@ function startup() {
   controlsBox = document.getElementById('controlsBox');
   outputBox = document.getElementById('outputBox');
 
+  //this shows the fighter images in the graphics box
   graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
   graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
 
@@ -86,7 +95,11 @@ function startup() {
 
 
 
+
 /*
+
 MHW = 'delicious'
+
 MHWoutput > MHWinput
+
 */
