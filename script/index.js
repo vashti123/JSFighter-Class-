@@ -55,7 +55,7 @@ class Fighter {
       graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
       graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_ko.png" alt="' + Player1.name + '" class="fighterIMG">'
       endTurn();
-    } 
+    }
 
   }
 
@@ -125,7 +125,7 @@ function koCheck(target, amount) {
   }
 }
 
-// code does not currently work 
+// code does not currently work
 // function endTurn() {
 //   if (koCheck()){
 //     hideControls()
