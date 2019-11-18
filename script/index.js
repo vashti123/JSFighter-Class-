@@ -46,6 +46,17 @@ class Fighter {
 
   single(target) {
     this.attack(target);
+    target.hp = Math.max(0, target.hp - Math.floor(Math.random() * 4))
+    console.log(target.hp);
+    graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_attack.png" alt="' + Player0.name + '" class="fighterIMG">'
+    graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_hit.png" alt="' + Player1.name + '" class="fighterIMG">'
+
+    if (koCheck(target.hp) == true) {
+      graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
+      graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_ko.png" alt="' + Player1.name + '" class="fighterIMG">'
+      endTurn();
+    } 
+
   }
 
   double(target) {
@@ -58,6 +69,7 @@ class Fighter {
     console.log('Recovered!');
   }
 }
+
 
 function startup() {
   Player0 = new Fighter(P0NAME, P0CHARA);
@@ -93,10 +105,22 @@ function showControls() {
   }
 }
 
-/*
+function hideControls() {
+  controlsBox.innerHTML = ""
+}
 
-MHW = 'delicious'
+function koCheck(target) {
+  if (target <= 0) {
+    return true
+  } else {
+    return false
+  }
+}
 
-MHWoutput > MHWinput
-
-*/
+function endTurn(playerTurn) {
+  if (koCheck()) {
+    showControls()
+  } else {
+    hideControls()
+  }
+}
