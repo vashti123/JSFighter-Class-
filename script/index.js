@@ -79,7 +79,7 @@ function startup() {
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
 
-  showControls()//runs the showControls() function
+  showControls() //runs the showControls() function
 }
 
 function showControls() {
@@ -93,14 +93,17 @@ function showControls() {
   }
 }
 //checks the target's HP is less than or equal to 0, Then retuns true or false.
-function koCheck(target, amount){
-target.hp = target.hp - amount;
-if (target.hp <= 0){
-return true;
+function koCheck(target, amount) {
+  target.hp = target.hp - amount;
+  if (target.hp <= 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
-else {
-  return false;
-}
+
+function hideContols() {
+  controlsBox.innerHTML = "";
 }
 /*
 
