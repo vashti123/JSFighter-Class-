@@ -75,24 +75,21 @@ function startup() {
   graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
   graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
 
-  showControls();
 
-  //this logs their name and attack
-  console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk);
-  console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk);
+  console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
+  console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
+
+  showControls() //runs the showControls() function
 }
 
 function showControls() {
-  /* This function makes the buttons using 'innerHTML'. it uses an 'if else' statement when
-  'playerTurn' is true it logs sams turn but when playerTurn is false it logs crashes turn */
-  //Player0 is FALSE, Player1 is TRUE.
+  //checks to see which players turn it is and show the apropriate controls
   if (playerTurn) {
-    controlsBox.innerHTML = '<button type="button" onclick= "Player0.single(Player1)">Single Attack</button>'
-    console.log("Crash's turn.");
-  }
-  else {
-    controlsBox.innerHTML = '<button type="button" onclick= "Player1.single(Player0)">Single Attack</button>'
-    console.log("Sam's turn.");
+    //show buttons for player1 and overwrites player0's controls
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
+  } else {
+    //show buttons for player0 and overwrites player1's controls
+    controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
   }
 }
 
