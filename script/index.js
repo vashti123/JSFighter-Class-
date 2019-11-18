@@ -95,7 +95,7 @@ function startup() {
 }
 
 function showControls() {
-  //checks to see which players turn it is and show the apropriate controls
+  //checks to see which players turn it is and show the appropriate controls
   if (playerTurn) {
     //show buttons for player1 and overwrites player0's controls
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player1.single(Player0)">Single Attack!</button>'
@@ -105,22 +105,46 @@ function showControls() {
   }
 }
 
-function hideControls() {
-  controlsBox.innerHTML = ""
+
+
+function hideControls (){
+  // hides the player controls after one players hp reaches 0
+    controlsBox.innerHTML = '';
 }
 
-function koCheck(target) {
-  if (target <= 0) {
+function koCheck(target, amount) {
+  // this checks the current hp and subtracts the damage
+  target.hp = target.hp - amount;
+  console.log(target.hp)
+
+  // this checks the current players health and determines whether he has been KO'd
+  if (target.hp <= 0){
     return true
-  } else {
+  }else {
     return false
   }
 }
 
-function endTurn(playerTurn) {
-  if (koCheck()) {
-    showControls()
-  } else {
-    hideControls()
-  }
-}
+// code does not currently work 
+// function endTurn() {
+//   if (koCheck()){
+//     hideControls()
+//   }else {
+//     showControls()
+//   }
+// }
+
+// Code does not currently work
+// function updateBars(target){
+//   var current = ((target.hp/START_HP) *100);
+//   console.log(current);
+//
+//   if(current <= 0) {
+//     current = 0;
+//   }else {
+//     if(current > 100) {
+//       current = 100;
+//     }
+//   }
+//   barsBox.innerHTML ='<div class= "hp.bar "><div class= "HPfill" style= "width: '+current+'"></div></div>'
+// }
