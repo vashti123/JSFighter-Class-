@@ -46,6 +46,17 @@ class Fighter {
 
   single(target) {
     this.attack(target);
+    target.hp = Math.max(0, target.hp - Math.floor(Math.random() * 4))
+    console.log(target.hp);
+    graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_attack.png" alt="' + Player0.name + '" class="fighterIMG">'
+    graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_hit.png" alt="' + Player1.name + '" class="fighterIMG">'
+
+    if (koCheck(target.hp) == true) {
+      graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
+      graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_ko.png" alt="' + Player1.name + '" class="fighterIMG">'
+      endTurn();
+    } 
+
   }
 
   double(target) {
@@ -58,6 +69,7 @@ class Fighter {
     console.log('Recovered!');
   }
 }
+
 
 function startup() {
   Player0 = new Fighter(P0NAME, P0CHARA);
@@ -93,6 +105,8 @@ function showControls() {
   }
 }
 
+
+
 function hideControls (){
   // hides the player controls after one players hp reaches 0
     controlsBox.innerHTML = '';
@@ -111,13 +125,14 @@ function koCheck(target, amount) {
   }
 }
 
-function endTurn() {
-  if (koCheck()){
-    hideControls()
-  }else {
-    showControls()
-  }
-}
+// code does not currently work 
+// function endTurn() {
+//   if (koCheck()){
+//     hideControls()
+//   }else {
+//     showControls()
+//   }
+// }
 
 // Code does not currently work
 // function updateBars(target){
@@ -133,12 +148,3 @@ function endTurn() {
 //   }
 //   barsBox.innerHTML ='<div class= "hp.bar "><div class= "HPfill" style= "width: '+current+'"></div></div>'
 // }
-
-
-/*
-
-MHW = 'delicious'
-
-MHWoutput > MHWinput
-
-*/
