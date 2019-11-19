@@ -100,6 +100,16 @@ function showControls() {
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
   }
 }
+//checks the target's HP is less than or equal to 0, Then retuns true or false.
+function koCheck(target, amount) {
+  target.hp = target.hp - amount;
+  if (target.hp <= 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 
 function updateBars() {
   //calculates the percent of HP
@@ -149,6 +159,11 @@ function updateBars() {
   barsBox.innerHTML += 'P1<div class="hpBar"><div style="height:' + player1PercentHP + '%; width: 100%;" id="p1HPfill" class="HPfill"></div></div>'
   barsBox.innerHTML += '<div class="spBar"><div style="height:' + player1PercentSP + '%; width: 100%;" id="p1SPfill" class="SPfill"></div></div>'
 }
+
+function hideContols() {
+  controlsBox.innerHTML = "";
+}
+
 /*
 
 MHW = 'delicious'
