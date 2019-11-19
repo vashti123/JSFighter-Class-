@@ -92,7 +92,19 @@ function showControls() {
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
   }
 }
+//checks the target's HP is less than or equal to 0, Then retuns true or false.
+function koCheck(target, amount) {
+  target.hp = target.hp - amount;
+  if (target.hp <= 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
+function hideContols() {
+  controlsBox.innerHTML = "";
+}
 /*
 
 MHW = 'delicious'
