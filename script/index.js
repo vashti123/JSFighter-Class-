@@ -16,6 +16,12 @@ let logging = true;
 let Player0;
 let Player1;
 
+//varible for finding % of players HP used for the HealthBar
+let player0PercentHP;
+let player1PercentHP;
+let player0PercentSP;
+let player1PercentSP;
+
 // declared variables for the boxes
 let gameBox;
 let headerBox;
@@ -71,6 +77,7 @@ function startup() {
   controlsBox = document.getElementById('controlsBox');
   outputBox = document.getElementById('outputBox');
 
+
   //this shows the fighter images in the graphics box
   graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
   graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_idle.png" alt="' + Player1.name + '" class="fighterIMG">'
@@ -80,6 +87,7 @@ function startup() {
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
 
   showControls() //runs the showControls() function
+  updateBars() //runs the updateBars() function
 }
 
 function showControls() {
@@ -92,13 +100,13 @@ function showControls() {
     controlsBox.innerHTML = '<button type="button" name="attack" onclick="Player0.single(Player1)">Single Attack!</button>'
   }
 }
-function kocheck(target, amount) {
-  target.hp = target.hp - amount
-  console.log(target.hp);
+//checks the target's HP is less than or equal to 0, Then retuns true or false.
+function koCheck(target, amount) {
+  target.hp = target.hp - amount;
   if (target.hp <= 0) {
-    return true
+    return true;
   } else {
-    return false
+    return false;
   }
 }
 
@@ -113,6 +121,7 @@ function endTurn() {
   else {
     showControls();
   }
+
 }
 
 /*
