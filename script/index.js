@@ -22,17 +22,13 @@ let player1PercentHP;
 let player0PercentSP;
 let player1PercentSP;
 
-// declared variables for the boxes and healthbar filling div layers
+// declared variables for the boxes
 let gameBox;
 let headerBox;
 let graphicsBox;
 let barsBox;
 let controlsBox;
 let outputBox;
-let p0HPfill;
-let p0SPfill;
-let p1HPfill;
-let p1SPfill;
 
 class Fighter {
   constructor(name, charaName) {
@@ -80,10 +76,6 @@ function startup() {
   barsBox = document.getElementById('barsBox');
   controlsBox = document.getElementById('controlsBox');
   outputBox = document.getElementById('outputBox');
-  p0HPfill = document.getElementById('p0HPfill');
-  p0SPfill = document.getElementById('p0SPfill');
-  p1HPfill = document.getElementById('p1HPfill');
-  p1SPfill = document.getElementById('p1SPfill');
 
 
   //this shows the fighter images in the graphics box
@@ -121,6 +113,8 @@ function updateBars() {
     player0PercentHP = 0
   } else if (player0PercentHP > 100) {
     player0PercentHP = 100
+  } else {
+    player0PercentHP = player0PercentHP
   }
 
   //Makes sure Player1's health is not greater than 100% or less than 0%
@@ -128,13 +122,17 @@ function updateBars() {
     player1PercentHP = 0
   } else if (player1PercentHP > 100) {
     player1PercentHP = 100
+  } else {
+    player1PercentHP = player1PercentHP
   }
 
   //Makes sure Player0's SP is not greater than 100% or less than 0%
   if (player0PercentSP <= 0) {
-    player0PercentHP = 0
+    player0PercentSP = 0
   } else if (player0PercentSP > 100) {
-    player0PercentHP = 100
+    player0PercentSP = 100
+  } else {
+    player0PercentSP = player0PercentSP
   }
 
   //Makes sure Player1's SP is not greater than 100% or less than 0%
@@ -142,19 +140,14 @@ function updateBars() {
     player1PercentSP = 0
   } else if (player1PercentSP > 100) {
     player1PercentSP = 100
+  } else {
+    player1PercentSP = player1PercentSP
   }
-
-  p0HPfill.style.width = player0PercentHP
-  p0HPfill.style.height = '100%'
-
-  p0SPfill.style.width = player0PercentSP
-  p0SPfill.style.height = '100%'
-
-  p1HPfill.style.width = player1PercentHP
-  p1HPfill.style.height = '100%'
-
-  p1SPfill.style.width = player1PercentSP
-  p1SPfill.style.height = '100%'
+  barsBox.innerHTML = ''
+  barsBox.innerHTML += 'P0<div class="hpBar"><div style="height:' + player0PercentHP + '%; width: 100%;" id="p0HPfill" class="HPfill"></div></div>'
+  barsBox.innerHTML += '<div class="spBar"><div style="height:' + player0PercentSP + '%; width: 100%;" id="p0SPfill" class="SPfill"></div></div>'
+  barsBox.innerHTML += 'P1<div class="hpBar"><div style="height:' + player1PercentHP + '%; width: 100%;" id="p1HPfill" class="HPfill"></div></div>'
+  barsBox.innerHTML += '<div class="spBar"><div style="height:' + player1PercentSP + '%; width: 100%;" id="p1SPfill" class="SPfill"></div></div>'
 }
 /*
 
