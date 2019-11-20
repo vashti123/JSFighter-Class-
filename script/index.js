@@ -47,7 +47,7 @@ class Fighter {
 
   //this logs who attacked who
   attack(target) {
-    console.log(this.name + ' attacked ' + target.name);
+    console.log (Math.round(Math.random() * 10));
   }
 
   single(target) {
@@ -115,7 +115,7 @@ function koCheck(target, amount) {
 // EndTurn code
 function endTurn() {
   playerTurn = !playerTurn
-  if (kocheck(Player0, 0)) || (kocheck(Player1, 0)){
+  if (kocheck(Player0, 0) || kocheck(Player1, 0)){
     hideControls();
   }
   else {
