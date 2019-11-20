@@ -48,10 +48,6 @@ class Fighter {
   //this logs who attacked who
   attack(target) {
     console.log(this.name + ' attacked ' + target.name);
-  }
-
-  single(target) {
-    this.attack(target);
     target.hp = Math.max(0, target.hp - Math.floor(Math.random() * 4))
     console.log(target.hp);
     graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_attack.png" alt="' + Player0.name + '" class="fighterIMG">'
@@ -61,6 +57,10 @@ class Fighter {
       graphicsBox.innerHTML = '<img id ="' + Player0.charaName + '" src="img/' + Player0.charaName + '_idle.png" alt="' + Player0.name + '" class="fighterIMG">'
       graphicsBox.innerHTML += '<img id ="' + Player1.charaName + '" src="img/' + Player1.charaName + '_ko.png" alt="' + Player1.name + '" class="fighterIMG">'
       endTurn();
+  }
+
+  single(target) {
+    this.attack(target);
     }
 
   }
@@ -176,8 +176,6 @@ function hideContols() {
   controlsBox.innerHTML = "";
 }
 
-
-
 function hideControls (){
   // hides the player controls after one players hp reaches 0
     controlsBox.innerHTML = '';
@@ -195,27 +193,3 @@ function koCheck(target, amount) {
     return false
   }
 }
-
-// code does not currently work
-// function endTurn() {
-//   if (koCheck()){
-//     hideControls()
-//   }else {
-//     showControls()
-//   }
-// }
-
-// Code does not currently work
-// function updateBars(target){
-//   var current = ((target.hp/START_HP) *100);
-//   console.log(current);
-//
-//   if(current <= 0) {
-//     current = 0;
-//   }else {
-//     if(current > 100) {
-//       current = 100;
-//     }
-//   }
-//   barsBox.innerHTML ='<div class= "hp.bar "><div class= "HPfill" style= "width: '+current+'"></div></div>'
-// }
