@@ -10,7 +10,7 @@ const P0CHARA = 'crashr'
 const P1NAME = 'Sam'
 const P1CHARA = 'saml'
 
-let playerTurn = true;
+let playerTurn = false;
 let logging = true;
 
 let Player0;
@@ -85,7 +85,6 @@ function startup() {
 
   console.log("My name is " + Player0.name + " and my ATK is " + Player0.atk)
   console.log("My name is " + Player1.name + " and my ATK is " + Player1.atk)
-
 
   showControls() //runs the showControls() function
   updateBars() //runs the updateBars() function
