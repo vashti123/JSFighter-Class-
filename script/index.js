@@ -172,10 +172,6 @@ function hideContols() {
   controlsBox.innerHTML = "";
 }
 
-function hideContols() {
-  controlsBox.innerHTML = "";
-}
-
 
 
 
